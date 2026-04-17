@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Dominio
 {
-    internal class Canal
+    public enum Canal
     {
+        EMAIL,
+        REDES_SOCIALES,
+        LLAMADA,
+        WHATSAPP
     }
 }

@@ -10,6 +10,25 @@ namespace Dominio
         public int Id { get; set; }
 
         public string Nombre { get; set; }
-        public TipoActivo Activo { get; set; }
+        public TipoActivo UnActivo { get; set; }
+        public int Criticidad { get; set; }
+        public Cuenta CuentaResponsable { get; set; }
+        public bool TieneBackup { get; set; }
+
+        public Activo(string nombre, TipoActivo activo, int criticidad, Cuenta cuenta, bool backup)
+        {
+            Id = UltimoId++;
+            Nombre = nombre;
+            UnActivo = activo;
+            Criticidad = criticidad;
+            CuentaResponsable = cuenta;
+            TieneBackup = backup;
+
+        }
+
+        public Activo()
+        {
+            Id = UltimoId++;
+        }
     }
 }

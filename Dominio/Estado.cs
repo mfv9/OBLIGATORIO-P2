@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Dominio
 {
-    internal class Estado
+    public enum Estado
     {
+        ABIERTO,
+        EN_ANALISIS,
+        CONTENIDO,
+        CERRADO
+
     }
+
 }
