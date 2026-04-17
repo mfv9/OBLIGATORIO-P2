@@ -1,10 +1,12 @@
-﻿namespace UI
+﻿using Dominio;
+
+namespace UI
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Sistema s = new Sistema();
         }
     }
 }
