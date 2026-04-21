@@ -6,7 +6,7 @@ namespace Dominio
 {
     public class Activo
     {
-        private static int UltimoId { get; set; } = 1;
+        private static int UltimoId { get; set; } = 0001;
         public int Id { get; set; }
 
         public string Nombre { get; set; }
@@ -14,6 +14,7 @@ namespace Dominio
         public int Criticidad { get; set; }
         public Cuenta CuentaResponsable { get; set; }
         public bool TieneBackup { get; set; }
+        
 
         public Activo(string nombre, TipoActivo activo, int criticidad, Cuenta cuenta, bool backup)
         {
@@ -24,6 +25,23 @@ namespace Dominio
             CuentaResponsable = cuenta;
             TieneBackup = backup;
 
+        }
+
+        public void Validar()
+        {
+            if (Nombre == "")
+            {
+                throw new Exception("No puedes tener el nombre vacio");
+            }
+            if (Criticidad < 1 || Criticidad > 5)
+            {
+                throw new Exception("La criticidad debe ser un numero del 1 al 5");
+            }
+            if (CuentaResponsable == null)
+            {
+                throw new Exception("La cuenta no puede estar vacia");
+
+            }
         }
 
         public Activo()

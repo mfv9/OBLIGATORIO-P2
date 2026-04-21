@@ -4,18 +4,48 @@ using System.Text;
 
 namespace Dominio
 {
-    public class Phishing:Incidente
+    public class Phishing : Incidente
     {
         public Canal CanalUsado { get; set; }
         public bool EntregoCredenciales { get; set; }
 
         public bool TransferenciaDatos { get; set; }
 
-        public Phishing(Canal canalUsado, bool entregoCredenciales, bool transferenciaDatos, DateTime fecha, Activo activo, string descripcion, Estado estado, int impacto, int probabilidad):base(fecha,activo,descripcion,estado,impacto,probabilidad)
+        public Phishing(Canal canalUsado, bool entregoCredenciales, bool transferenciaDatos, DateTime fecha, Activo activo, string descripcion, Estado estado, int impacto, int probabilidad) : base(fecha, activo, descripcion, estado, impacto, probabilidad)
         {
             CanalUsado = canalUsado;
             EntregoCredenciales = entregoCredenciales;
             TransferenciaDatos = transferenciaDatos;
+        }
+
+        public override void Validar()
+        {
+            if (FechaReporte > DateTime.Now)
+            {
+                throw new Exception("La fecha de reporte no puede ser mayor a la de hoy");
+            }
+
+            if (ActivoAfectado == null)
+            {
+                throw new Exception("No puede no tener activo");
+            }
+
+            if (String.IsNullOrEmpty(Descripcion))
+            {
+                throw new Exception("La descripcion no puede ser vacia");
+            }
+
+            if (Impacto < 1 || Impacto > 5)
+            {
+                throw new Exception("El impacto no puede ser menor a 1 ni mayor a 5");
+            }
+
+
+            if (Probabilidad < 1 || Probabilidad > 5)
+            {
+                throw new Exception("La probabilidad no puede ser menor a 1 ni mayor a 5");
+            }
+
         }
 
 

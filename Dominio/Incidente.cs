@@ -26,6 +26,8 @@ namespace Dominio
             Probabilidad = probabilidad;
         }
 
+        public abstract void Validar();
+
         public Incidente()
         {
             Id = UltimoId++;

@@ -24,7 +24,7 @@ namespace Dominio
         public void Validar()
         {
 
-            if (Nombre == "")
+            if (String.IsNullOrEmpty(Nombre))
             {
                 throw new Exception("No puedes tener el nombre vacio");
             }
@@ -32,15 +32,15 @@ namespace Dominio
             {
                 throw new Exception($"El mail debe contener el arroba (@)");
             }
-            if (Cedula == "" && Cedula.Length < 8)
+            if (Cedula == "" || Cedula.Length < 8)
             {
                 throw new Exception("La cedula no puede estar vacia y debe tener mas de 8 caracteres");
             }
-            if (Email == "")
+            if (String.IsNullOrEmpty(Email))
             {
                 throw new Exception("El mail no puede estar vacio");
             }
-            if (Telefono < 0 && !ValidarNumero(Telefono)) {
+            if (Telefono < 0 || !ValidarNumero(Telefono)) {
                 throw new Exception("El telefono debe tener 9 numeros y no puede ser negativo");
             }
             

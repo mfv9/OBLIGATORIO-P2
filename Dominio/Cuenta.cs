@@ -26,6 +26,10 @@ namespace Dominio
             {
                 throw new Exception("El titular no puede estar vacio");
             }
+            if(FechaCambioPass > DateTime.Now)
+            {
+                throw new Exception("La fecha no puede ser mayor a la de hoy");
+            }
         }
         public Cuenta()
         {

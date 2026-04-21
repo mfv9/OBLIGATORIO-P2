@@ -14,6 +14,36 @@ namespace Dominio
             DatosEncriptados = datos;
             HuboExfiltracion = exfiltracion;
         }
-        
+
+        public override void Validar()
+        {
+            if (FechaReporte > DateTime.Now)
+            {
+                throw new Exception("La fecha de reporte no puede ser mayor a la de hoy");
+            }
+
+            if (ActivoAfectado == null)
+            {
+                throw new Exception("No puede no tener activo");
+            }
+
+            if (String.IsNullOrEmpty(Descripcion))
+            {
+                throw new Exception("La descripcion no puede ser vacia");
+            }
+
+            if (Impacto < 1 || Impacto > 5)
+            {
+                throw new Exception("El impacto no puede ser menor a 1 ni mayor a 5");
+            }
+
+
+            if (Probabilidad < 1 || Probabilidad > 5)
+            {
+                throw new Exception("La probabilidad no puede ser menor a 1 ni mayor a 5");
+            }
+
+        }
+
     }
 }
