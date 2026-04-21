@@ -27,6 +27,12 @@ namespace Dominio
 
         }
 
+        //TODO
+        public void CalcularCodigo()
+        {
+            
+        }
+
         public void Validar()
         {
             if (Nombre == "")

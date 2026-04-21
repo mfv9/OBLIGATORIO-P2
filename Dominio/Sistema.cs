@@ -28,7 +28,11 @@ namespace Dominio
         public void AltaPersona(Persona persona)
         {
             persona.Validar();
-            _personas.Add(persona);
+            if (ValidacionAltaPersona(persona))
+            {
+                _personas.Add(persona);
+            }
+
         }
 
         public void AltaActivo(Activo activo)
@@ -63,18 +67,35 @@ namespace Dominio
             return _incidentes;
         }
 
+        public bool ValidacionAltaPersona(Persona persona)
+        {
+            foreach (Persona p in _personas)
+            {
+                if (p.Cedula == persona.Cedula)
+                {
+                    return false;
+                }
+                if (p.Email == persona.Email)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
         public void PrecargarDatos()
         {
-            Persona p1 = new Persona("49067314", "Juan", "juan123@gmail.com", 111111, "xxx");
-            Persona p2 = new Persona("51234567", "Nicolas", "nicolas123@gmail.com", 222222, "xxx");
-            Persona p3 = new Persona("18456587", "Camila", "cam123@gmail.com", 333333, "xxx");
-            Persona p4 = new Persona("77841857", "Ramiro", "ramiro123@gmail.com", 444444, "xxx");
-            Persona p5 = new Persona("89745624", "Pedro", "pedro123@gmail.com", 555555, "xxx");
-            Persona p6 = new Persona("78412354", "Martina", "martina123@gmail.com", 666666, "xxx");
-            Persona p7 = new Persona("89135648", "Isabel", "isabel123@gmail.com", 777777, "xxx");
-            Persona p8 = new Persona("23156545", "Martin", "martin123@gmail.com", 88888, "xxx");
-            Persona p9 = new Persona("89451634", "Lucas", "luqi123@gmail.com", 999999, "xxx");
-            Persona p10 = new Persona("54905645", "Diego", "die123@gmail.com", 101010, "xxx");
+            Persona p1 = new Persona("49067314", "Juan", "juan123@gmail.com", 098337697, "xxx");
+            Persona p2 = new Persona("51234567", "Nicolas", "nicolas123@gmail.com", 099652456, "xxx");
+            Persona p3 = new Persona("18456587", "Camila", "cam123@gmail.com", 096321567, "xxx");
+            Persona p4 = new Persona("77841857", "Ramiro", "ramiro123@gmail.com", 097589451, "xxx");
+            Persona p5 = new Persona("89745624", "Pedro", "pedro123@gmail.com", 0932564125, "xxx");
+            Persona p6 = new Persona("78412354", "Martina", "martina123@gmail.com", 095641245, "xxx");
+            Persona p7 = new Persona("89135648", "Isabel", "isabel123@gmail.com", 098656232, "xxx");
+            Persona p8 = new Persona("23156545", "Martin", "martin123@gmail.com", 0947812456, "xxx");
+            Persona p9 = new Persona("89451634", "Lucas", "luqi123@gmail.com", 092456789, "xxx");
+            Persona p10 = new Persona("54905645", "Diego", "die123@gmail.com", 0962345698, "xxx");
             Cuenta c1 = new Cuenta(p1, true, new DateTime(2026, 04, 01));
             Cuenta c2 = new Cuenta(p2, false, new DateTime(2026, 03, 01));
             Cuenta c3 = new Cuenta(p3, false, new DateTime(2026, 02, 01));
