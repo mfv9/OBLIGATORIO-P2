@@ -20,7 +20,13 @@ namespace Dominio
             TieneMfa = tieneMfa;
             FechaCambioPass = fechaCambioPass;
         }
-
+        public void Validar()
+        {
+            if(Titular == null)
+            {
+                throw new Exception("El titular no puede estar vacio");
+            }
+        }
         public Cuenta()
         {
             Id = UltimoId++;

@@ -40,7 +40,7 @@ namespace Dominio
             {
                 throw new Exception("El mail no puede estar vacio");
             }
-            if (Telefono.ToString().Length < 9 && Telefono < 0) {
+            if (Telefono < 0 && !ValidarNumero(Telefono)) {
                 throw new Exception("El telefono debe tener 9 numeros y no puede ser negativo");
             }
             
@@ -60,10 +60,14 @@ namespace Dominio
         private bool ValidarNumero(int numero)
         {
             string aux = numero.ToString();
-            if (aux.IndexOf(-1) != 0 )
+            if (aux[-1] != '0' && aux[0] != '9')
             {
-
+                if (aux.Length > 8)
+                {
+                    return true;
+                }
             }
+            return false;
         }
 
         public Persona()
