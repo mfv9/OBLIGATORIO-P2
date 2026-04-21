@@ -10,13 +10,60 @@ namespace Dominio
         public string Nombre { get; set; }
         public string Email { get; set; }
         public int Telefono { get; set; }
+        public string Password { get; set; }
 
-        public Persona (string cedula, string nombre, string email, int telefono)
+        public Persona(string cedula, string nombre, string email, int telefono, string pass)
         {
             Cedula = cedula;
             Nombre = nombre;
             Email = email;
             Telefono = telefono;
+            Password = pass;
+        }
+
+        public void Validar()
+        {
+
+            if (Nombre == "")
+            {
+                throw new Exception("No puedes tener el nombre vacio");
+            }
+            if (!ValidarEmail(Email))
+            {
+                throw new Exception($"El mail debe contener el arroba (@)");
+            }
+            if (Cedula == "" && Cedula.Length < 8)
+            {
+                throw new Exception("La cedula no puede estar vacia y debe tener mas de 8 caracteres");
+            }
+            if (Email == "")
+            {
+                throw new Exception("El mail no puede estar vacio");
+            }
+            if (Telefono.ToString().Length < 9 && Telefono < 0) {
+                throw new Exception("El telefono debe tener 9 numeros y no puede ser negativo");
+            }
+            
+            
+        }
+
+        private bool ValidarEmail(string email)
+        {
+            int posArroba = email.IndexOf("@");
+            if (posArroba != -1 && posArroba != 0 && posArroba != email.Length - 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool ValidarNumero(int numero)
+        {
+            string aux = numero.ToString();
+            if (aux.IndexOf(-1) != 0 )
+            {
+
+            }
         }
 
         public Persona()

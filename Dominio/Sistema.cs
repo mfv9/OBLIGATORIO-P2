@@ -10,7 +10,7 @@ namespace Dominio
         private List<Persona> _personas = new List<Persona>();
         private List<Activo> _activos = new List<Activo>();
         private List<Incidente> _incidentes = new List<Incidente>();
-
+        
         public Sistema()
         {
             PrecargarDatos();
