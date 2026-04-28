@@ -28,10 +28,11 @@ namespace Dominio
         public void AltaPersona(Persona persona)
         {
             persona.Validar();
-            if (ValidacionAltaPersona(persona))
+            if (_personas.Contains(persona))
             {
-                _personas.Add(persona);
+                throw new Exception("Ya existe la cedula o el mail");
             }
+            _personas.Add(persona);
 
         }
 
@@ -67,24 +68,24 @@ namespace Dominio
             return _incidentes;
         }
 
-        public bool ValidacionAltaPersona(Persona persona)
-        {
-            foreach (Persona p in _personas)
-            {
-                if (p.Cedula == persona.Cedula)
-                {
-                    return false;
-                }
-                if (p.Email == persona.Email)
-                {
-                    return false;
-                }
+        //public bool ValidacionAltaPersona(Persona persona)
+        //{
+        //    foreach (Persona p in _personas)
+        //    {
+        //        if (p.Cedula == persona.Cedula)
+        //        {
+        //            return false;
+        //        }
+        //        if (p.Email == persona.Email)
+        //        {
+        //            return false;
+        //        }
 
-            }
-            return true;
-        }
+        //    }
+        //    return true;
+        //}
 
-        public void PrecargarDatos()
+        private void PrecargarDatos()
         {
             Persona p1 = new Persona("49067314", "Juan", "juan123@gmail.com", 098337697, "xxx");
             Persona p2 = new Persona("51234567", "Nicolas", "nicolas123@gmail.com", 099652456, "xxx");

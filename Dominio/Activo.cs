@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace Dominio
@@ -14,7 +15,8 @@ namespace Dominio
         public int Criticidad { get; set; }
         public Cuenta CuentaResponsable { get; set; }
         public bool TieneBackup { get; set; }
-        
+
+
 
         public Activo(string nombre, TipoActivo activo, int criticidad, Cuenta cuenta, bool backup)
         {
@@ -30,12 +32,13 @@ namespace Dominio
         //TODO
         public void CalcularCodigo()
         {
-            
+
+
         }
 
         public void Validar()
         {
-            if (Nombre == "")
+            if (String.IsNullOrEmpty(Nombre))
             {
                 throw new Exception("No puedes tener el nombre vacio");
             }
@@ -49,6 +52,13 @@ namespace Dominio
 
             }
         }
+
+        //public override string ToString()
+        //{
+
+        //}
+
+
 
         public Activo()
         {

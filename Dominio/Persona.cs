@@ -40,11 +40,12 @@ namespace Dominio
             {
                 throw new Exception("El mail no puede estar vacio");
             }
-            if (Telefono < 0 || !ValidarNumero(Telefono)) {
+            if (Telefono < 0)
+            {
                 throw new Exception("El telefono debe tener 9 numeros y no puede ser negativo");
             }
-            
-            
+
+
         }
 
         private bool ValidarEmail(string email)
@@ -57,17 +58,32 @@ namespace Dominio
             return false;
         }
 
-        private bool ValidarNumero(int numero)
+        //private bool ValidarNumero(int numero)
+        //{
+        //    string aux = numero.ToString();
+        //    if (aux[-1] != '0' && aux[0] != '9')
+        //    {
+        //        if (aux.Length > 8)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
+
+        public override bool Equals(object? obj)
         {
-            string aux = numero.ToString();
-            if (aux[-1] != '0' && aux[0] != '9')
+
+            if (obj is Persona)
             {
-                if (aux.Length > 8)
-                {
-                    return true;
-                }
+                Persona p = (Persona)obj;
+                return Cedula == p.Cedula ||
+                   Email == p.Email;
             }
+
             return false;
+
+
         }
 
         public Persona()
