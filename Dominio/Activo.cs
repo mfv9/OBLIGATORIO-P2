@@ -53,10 +53,10 @@ namespace Dominio
             }
         }
 
-        //public override string ToString()
-        //{
-
-        //}
+        public override string ToString()
+        {
+            return $"{Nombre} - {Criticidad} - {UnActivo} - {CuentaResponsable}";
+        }
 
 
 

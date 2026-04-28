@@ -33,5 +33,10 @@ namespace Dominio
             Id = UltimoId++;
 
         }
+
+        public override string ToString()
+        {
+            return $"{ActivoAfectado} - {Estado} - {Impacto} - {Probabilidad}";
+        }
     }
 }
