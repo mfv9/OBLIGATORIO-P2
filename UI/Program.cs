@@ -79,6 +79,12 @@ namespace UI
                     {
                             Console.WriteLine(i);   
                     }
+                }else if (op.Equals(4))
+                {
+                    foreach (Activo a in s.ActivoCarecienteDeBackup())
+                    {
+                        Console.WriteLine(a);
+                    }
                 }
                 Console.ReadKey();
             }

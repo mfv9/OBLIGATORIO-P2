@@ -95,6 +95,19 @@ namespace Dominio
             return personasActivo;
         }
 
+        public List<Activo> ActivoCarecienteDeBackup()
+        {
+            List<Activo> ret = new List<Activo>();
+            foreach (Activo a in _activos)
+            {
+                if (!a.TieneBackup)
+                {
+                    ret.Add(a);
+                }
+            }
+            return ret;
+        }
+
         public List<Activo> GetActivos()
         {
             return _activos;
