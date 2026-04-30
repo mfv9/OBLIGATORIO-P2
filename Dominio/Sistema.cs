@@ -118,6 +118,8 @@ namespace Dominio
             Persona p8 = new Persona("23156545", "Martin", "martin123@gmail.com", 0947812456, "xxx");
             Persona p9 = new Persona("89451634", "Lucas", "luqi123@gmail.com", 092456789, "xxx");
             Persona p10 = new Persona("54905645", "Diego", "die123@gmail.com", 0962345698, "xxx");
+            Persona p11 = new Persona("54238253", "Alex", "Alexanderdaniel10silva@gmail.com", 095119802, "xxx");
+            Persona p12 = new Persona("54238251", "Mateo", "mateofv99@gmail.com", 098337697, "xxx");
             Cuenta c1 = new Cuenta(p1, true, new DateTime(2026, 04, 01));
             Cuenta c2 = new Cuenta(p2, false, new DateTime(2026, 03, 01));
             Cuenta c3 = new Cuenta(p3, false, new DateTime(2026, 02, 01));
@@ -128,8 +130,8 @@ namespace Dominio
             Cuenta c8 = new Cuenta(p8, true, new DateTime(2026, 04, 05));
             Cuenta c9 = new Cuenta(p9, false, new DateTime(2026, 02, 11));
             Cuenta c10 = new Cuenta(p10, true, new DateTime(2026, 02, 21));
-            Cuenta c11 = new Cuenta(p7, false, new DateTime(2026, 01, 20));
-            Cuenta c12 = new Cuenta(p4, true, new DateTime(2026, 03, 31));
+            Cuenta c11 = new Cuenta(p12, false, new DateTime(2026, 01, 20));
+            Cuenta c12 = new Cuenta(p11, true, new DateTime(2026, 03, 31));
             Activo a1 = new Activo("Activo1", TipoActivo.PC, 4, c1, true);
             Activo a2 = new Activo("Activo2", TipoActivo.MOVIL, 4, c2, true);
             Activo a3 = new Activo("Activo3", TipoActivo.SERVER, 2, c3, false);
