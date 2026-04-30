@@ -58,6 +58,29 @@ namespace Dominio
             return _personas;
         }
 
+        public List<Activo> GetPersonasYActivos()
+        {
+            List<Activo> personasActivo = new List<Activo>();
+            foreach (Activo a in _activos)
+            {
+                bool existeDentro = false;
+                foreach (Activo pA in personasActivo)
+                {
+                    if (pA.CuentaResponsable.Titular.Equals(a.CuentaResponsable.Titular))
+                    {
+                        existeDentro = true;
+                        break;
+                    }
+                }
+                
+                if (existeDentro == false)
+                {
+                    personasActivo.Add(a);
+                }
+            }
+            return personasActivo;
+        }
+
         public List<Activo> GetActivos()
         {
             return _activos;

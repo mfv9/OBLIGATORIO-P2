@@ -87,6 +87,11 @@ namespace Dominio
 
         }
 
+        public override string ToString()
+        {
+            return $"{Nombre}";
+        }
+
         public Persona()
         {
 

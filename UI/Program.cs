@@ -13,12 +13,16 @@ namespace UI
             while (op != 0)
             {
                 Console.Clear();
-                Console.WriteLine("1-Alta persona");
-                Console.WriteLine("2 - Listar personas");
+                Console.WriteLine("1 - Listar personas con activo");
+                Console.WriteLine("2 - Listar incidentes por persona");
+                Console.WriteLine("3 - Alta persona");
+                Console.WriteLine("4 - Listar activos carecientes de backup");
+                
+                
 
                 op = int.Parse(Console.ReadLine());
 
-                if (op.Equals(1))
+                if (op.Equals(3))
                 {
                     try
                     {
@@ -50,13 +54,14 @@ namespace UI
                     }
 
                 }
-                else if (op.Equals(2))
+                else if (op.Equals(1))
                 {
-
-                    foreach (Persona p in s.GetPersonas())
+                    foreach (Activo a in s.GetPersonasYActivos())
                     {
-                        Console.WriteLine(p.Nombre);
+                        Console.WriteLine($"{a.CuentaResponsable.Titular}\n {a.Nombre} - {a.UnActivo}");
                     }
+
+                  
                 }
                 Console.ReadKey();
             }
