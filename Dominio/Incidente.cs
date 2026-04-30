@@ -36,7 +36,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{ActivoAfectado} - {Estado} - {Impacto} - {Probabilidad}";
+            return $"{ActivoAfectado}Estado: {Estado} - Impacto: {Impacto} - Probabilidad: {Probabilidad}";
         }
     }
 }

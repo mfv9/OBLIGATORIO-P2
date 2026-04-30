@@ -52,10 +52,24 @@ namespace Dominio
         {
             return _cuentas;
         }
-
+       
         public List<Persona> GetPersonas()
         {
             return _personas;
+        }
+
+
+        public List<Incidente> GetIncidentesPorPersona(int iDCuenta)
+        {
+            List<Incidente> ret = new List<Incidente>();
+            foreach (Incidente i in _incidentes)
+            {
+                if (i.ActivoAfectado.CuentaResponsable.Id.Equals(iDCuenta))
+                {
+                    ret.Add(i);
+                } 
+            }
+            return ret; 
         }
 
         public List<Activo> GetPersonasYActivos()
@@ -73,7 +87,7 @@ namespace Dominio
                     }
                 }
                 
-                if (existeDentro == false)
+                if (existeDentro.Equals(false))
                 {
                     personasActivo.Add(a);
                 }
@@ -91,22 +105,6 @@ namespace Dominio
             return _incidentes;
         }
 
-        //public bool ValidacionAltaPersona(Persona persona)
-        //{
-        //    foreach (Persona p in _personas)
-        //    {
-        //        if (p.Cedula == persona.Cedula)
-        //        {
-        //            return false;
-        //        }
-        //        if (p.Email == persona.Email)
-        //        {
-        //            return false;
-        //        }
-
-        //    }
-        //    return true;
-        //}
 
         private void PrecargarDatos()
         {

@@ -55,7 +55,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"{Nombre} - {Criticidad} - {UnActivo} - {CuentaResponsable}";
+            return $"{Nombre} - Criticidad: {Criticidad} - Tipo de activo: {UnActivo} - Cuenta Responsable: {CuentaResponsable} \n ";
         }
 
 

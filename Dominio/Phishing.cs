@@ -48,9 +48,10 @@ namespace Dominio
 
         }
 
+
         public override string ToString()
         {
-            return base.ToString() + $"{CanalUsado}";
+            return base.ToString() + $" \n Canal Usado: {CanalUsado} \n Entrego creedenciales: {(EntregoCredenciales ? "Si" : "No")} \n Hubo trasnferencia de datos {(TransferenciaDatos ? "Si" : "No")}\n";
         }
 
 

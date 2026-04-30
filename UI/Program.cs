@@ -62,6 +62,23 @@ namespace UI
                     }
 
                   
+                }else if (op.Equals(2))
+                {
+                    foreach (Cuenta c in s.GetCuentas())
+                    {
+                        Console.WriteLine($"{c} - {c.Titular.Cedula} - ID: {c.Id} \n");
+                    }
+
+                    Console.WriteLine($"Seleccione el ID de la cuenta a la que quiere inspeccionar");
+                    
+
+                    int iDPersona = int.Parse(Console.ReadLine());
+                    Console.Clear();
+
+                    foreach (Incidente i in s.GetIncidentesPorPersona(iDPersona))
+                    {
+                            Console.WriteLine(i);   
+                    }
                 }
                 Console.ReadKey();
             }
