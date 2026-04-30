@@ -66,7 +66,7 @@ namespace UI
                 {
                     foreach (Cuenta c in s.GetCuentas())
                     {
-                        Console.WriteLine($"ID: {c.Id} - CI :{c.Titular.Cedula} - {c.Titular.Email} \n");
+                        Console.WriteLine($"ID: {c.Id} - CI : {c.Titular.Cedula} - {c.Titular.Email} \n");
                     }
 
                     Console.WriteLine($"Seleccione el ID de la cuenta a la que quiere inspeccionar");

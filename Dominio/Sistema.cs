@@ -188,6 +188,8 @@ namespace Dominio
             AltaPersona(p8);
             AltaPersona(p9);
             AltaPersona(p10);
+            AltaPersona(p11);
+            AltaPersona(p12);
             AltaCuenta(c1);
             AltaCuenta(c2);
             AltaCuenta(c3);
