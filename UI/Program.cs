@@ -17,8 +17,9 @@ namespace UI
                 Console.WriteLine("2 - Listar incidentes por persona");
                 Console.WriteLine("3 - Alta persona");
                 Console.WriteLine("4 - Listar activos carecientes de backup");
-                
-                
+                Console.WriteLine("0 - Salir");
+
+
 
                 op = int.Parse(Console.ReadLine());
 
@@ -26,19 +27,19 @@ namespace UI
                 {
                     try
                     {
-                        Console.WriteLine("Nombre");
+                        Console.WriteLine("Ingrese el nombre");
                         string nombre = Console.ReadLine();
 
-                        Console.WriteLine("CI");
+                        Console.WriteLine("Ingrese la cedula");
                         string cI = Console.ReadLine();
 
-                        Console.WriteLine("Email");
+                        Console.WriteLine("Ingrese el email");
                         string email = Console.ReadLine();
 
-                        Console.WriteLine("tel");
+                        Console.WriteLine("Ingrese un telefono");
                         int telefono = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("contrasenia");
+                        Console.WriteLine("Ingrese contraseña");
                         string contrasenia = Console.ReadLine();
 
                         Persona nuevo = new Persona(cI, nombre, email, telefono, contrasenia);
@@ -61,8 +62,9 @@ namespace UI
                         Console.WriteLine($"{a.CuentaResponsable.Titular}\n {a.Nombre} - {a.UnActivo}");
                     }
 
-                  
-                }else if (op.Equals(2))
+
+                }
+                else if (op.Equals(2))
                 {
                     foreach (Cuenta c in s.GetCuentas())
                     {
@@ -70,21 +72,32 @@ namespace UI
                     }
 
                     Console.WriteLine($"Seleccione el ID de la cuenta a la que quiere inspeccionar");
-                    
+
 
                     int iDPersona = int.Parse(Console.ReadLine());
                     Console.Clear();
 
                     foreach (Incidente i in s.GetIncidentesPorPersona(iDPersona))
                     {
-                            Console.WriteLine(i);   
+                        Console.WriteLine(i);
                     }
-                }else if (op.Equals(4))
+                }
+                else if (op.Equals(4))
                 {
                     foreach (Activo a in s.ActivoCarecienteDeBackup())
                     {
                         Console.WriteLine(a);
                     }
+                }
+
+
+                if (op != 0)
+                {
+                    Console.WriteLine("Presione una tecla para continuar");
+                }
+                if (op.Equals(0))
+                {
+                    Console.WriteLine("Presione una tecla para salir");
                 }
                 Console.ReadKey();
             }
