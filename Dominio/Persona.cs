@@ -48,7 +48,7 @@ namespace Dominio
 
         }
 
-        private bool ValidarEmail(string email)
+        public bool ValidarEmail(string email)
         {
             int posArroba = email.IndexOf("@");
             if (posArroba != -1 && posArroba != 0 && posArroba != email.Length - 1)

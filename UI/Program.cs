@@ -23,7 +23,34 @@ namespace UI
 
                 op = int.Parse(Console.ReadLine());
 
-                if (op.Equals(3))
+
+                if (op.Equals(1))
+                {
+                    foreach (Activo a in s.GetPersonasYActivos())
+                    {
+                        Console.WriteLine($"{a.CuentaResponsable.Titular}\n {a.Nombre} - {a.UnActivo}");
+                    }
+
+
+                }
+                else if (op.Equals(2))
+                {
+                    foreach (Cuenta c in s.GetCuentas())
+                    {
+                        Console.WriteLine($"ID: {c.Id} - CI : {c.Titular.Cedula} - {c.Titular.Email} \n");
+                    }
+
+                    Console.WriteLine($"Seleccione el ID de la cuenta a la que quiere inspeccionar");
+
+                    int iDPersona = int.Parse(Console.ReadLine());
+                    Console.Clear();
+
+                    foreach (Incidente i in s.GetIncidentesPorPersona(iDPersona))
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+                else if (op.Equals(3))
                 {
                     try
                     {
@@ -54,33 +81,6 @@ namespace UI
                         Console.WriteLine(e.Message); //TODO 
                     }
 
-                }
-                else if (op.Equals(1))
-                {
-                    foreach (Activo a in s.GetPersonasYActivos())
-                    {
-                        Console.WriteLine($"{a.CuentaResponsable.Titular}\n {a.Nombre} - {a.UnActivo}");
-                    }
-
-
-                }
-                else if (op.Equals(2))
-                {
-                    foreach (Cuenta c in s.GetCuentas())
-                    {
-                        Console.WriteLine($"ID: {c.Id} - CI : {c.Titular.Cedula} - {c.Titular.Email} \n");
-                    }
-
-                    Console.WriteLine($"Seleccione el ID de la cuenta a la que quiere inspeccionar");
-
-
-                    int iDPersona = int.Parse(Console.ReadLine());
-                    Console.Clear();
-
-                    foreach (Incidente i in s.GetIncidentesPorPersona(iDPersona))
-                    {
-                        Console.WriteLine(i);
-                    }
                 }
                 else if (op.Equals(4))
                 {
