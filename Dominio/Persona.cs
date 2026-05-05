@@ -58,23 +58,10 @@ namespace Dominio
             return false;
         }
 
-        //private bool ValidarNumero(int numero)
-        //{
-        //    string aux = numero.ToString();
-        //    if (aux[-1] != '0' && aux[0] != '9')
-        //    {
-        //        if (aux.Length > 8)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
+ 
 
         public override bool Equals(object? obj)
-
         {
-
             if (obj is Persona)
             {
                 Persona p = (Persona)obj;

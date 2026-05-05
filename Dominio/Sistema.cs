@@ -72,7 +72,7 @@ namespace Dominio
             return ret; 
         }
 
-        public List<Activo> GetPersonasYActivos()
+        public List<Activo> GetActivoPorPersona()
         {
             List<Activo> personasActivo = new List<Activo>();
             foreach (Activo a in _activos)
@@ -145,21 +145,21 @@ namespace Dominio
             Cuenta c10 = new Cuenta(p10, true, new DateTime(2026, 02, 21));
             Cuenta c11 = new Cuenta(p12, false, new DateTime(2026, 01, 20));
             Cuenta c12 = new Cuenta(p11, true, new DateTime(2026, 03, 31));
-            Activo a1 = new Activo("Activo1", TipoActivo.PC, 4, c1, true);
-            Activo a2 = new Activo("Activo2", TipoActivo.MOVIL, 4, c2, true);
-            Activo a3 = new Activo("Activo3", TipoActivo.SERVER, 2, c3, false);
-            Activo a4 = new Activo("Activo4", TipoActivo.PC, 4, c4, true);
-            Activo a5 = new Activo("Activo5", TipoActivo.PC, 3, c5, false);
-            Activo a6 = new Activo("Activo6", TipoActivo.MOVIL, 4, c6, true);
-            Activo a7 = new Activo("Activo7", TipoActivo.MOVIL, 5, c7, false);
-            Activo a8 = new Activo("Activo8", TipoActivo.SERVER, 4, c8, false);
-            Activo a9 = new Activo("Activo9", TipoActivo.PC, 1, c9, true);
-            Activo a10 = new Activo("Activo10", TipoActivo.SERVER, 3, c10, false);
-            Activo a11 = new Activo("Activo11", TipoActivo.MOVIL, 4, c11, true);
-            Activo a12 = new Activo("Activo12", TipoActivo.SERVER, 5, c12, false);
-            Activo a13 = new Activo("Activo13", TipoActivo.SERVER, 4, c9, true);
-            Activo a14 = new Activo("Activo14", TipoActivo.PC, 1, c7, false);
-            Activo a15 = new Activo("Activo15", TipoActivo.PC, 4, c2, true);
+            Activo a1 = new Activo("PC-MVD-2026-001 | Lenovo Legion LOQ (IBM)", TipoActivo.PC, 4, c1, true);
+            Activo a2 = new Activo("MOV-MVD-2026-001 | iPhone 12", TipoActivo.MOVIL, 4, c2, true);
+            Activo a3 = new Activo("SRV-USA-2026-001 | Servidor Físico Datacenter USA", TipoActivo.SERVER, 2, c3, false);
+            Activo a4 = new Activo("PC-MVD-2026-002 | Gigabyte G6", TipoActivo.PC, 4, c4, true);
+            Activo a5 = new Activo("PC-MVD-2026-003 | Asus Infinite", TipoActivo.PC, 3, c5, false);
+            Activo a6 = new Activo("MOV-MVD-2026-002 | Samsung Galaxy S21", TipoActivo.MOVIL, 4, c6, true);
+            Activo a7 = new Activo("MOV-MVD-2026-003 | Xiaomi Redmi Note 10", TipoActivo.MOVIL, 5, c7, false);
+            Activo a8 = new Activo("SRV-CLD-2026-001 | Instancia AWS EC2 Producción", TipoActivo.SERVER, 4, c8, false);
+            Activo a9 = new Activo("PC-MVD-2026-004 | HP Pavilion", TipoActivo.PC, 1, c9, true);
+            Activo a10 = new Activo("SRV-CLD-2026-002 | Servicio Microsoft Azure", TipoActivo.SERVER, 3, c10, false);
+            Activo a11 = new Activo("MOV-MVD-2026-004 | Motorola Edge 20", TipoActivo.MOVIL, 4, c11, true);
+            Activo a12 = new Activo("SRV-CLD-2026-003 | Servicio Google Cloud Platform", TipoActivo.SERVER, 5, c12, false);
+            Activo a13 = new Activo("SRV-MVD-2026-002 | Servidor Backup Local", TipoActivo.SERVER, 4, c9, true);
+            Activo a14 = new Activo("PC-MVD-2026-005 | Dell Inspiron", TipoActivo.PC, 1, c7, false);
+            Activo a15 = new Activo("PC-MVD-2026-006 | Lenovo ThinkCentre", TipoActivo.PC, 4, c2, true);
             Incidente i1 = new Phishing(Canal.EMAIL, true, true, new DateTime(2026, 01, 01), a1, "xxx", Estado.ABIERTO, 3, 4);
             Incidente i2 = new Phishing(Canal.WHATSAPP, false, false, new DateTime(2026, 01, 01), a2, "xxx", Estado.ABIERTO, 3, 4);
             Incidente i3 = new Phishing(Canal.REDES_SOCIALES, true, false, new DateTime(2026, 01, 01), a3, "xxx", Estado.CERRADO, 3, 4);

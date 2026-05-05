@@ -26,7 +26,7 @@ namespace UI
 
                 if (op.Equals(1))
                 {
-                    foreach (Activo a in s.GetPersonasYActivos())
+                    foreach (Activo a in s.GetActivoPorPersona())
                     {
                         Console.WriteLine($"{a.CuentaResponsable.Titular}\n {a.Nombre} - {a.UnActivo}");
                     }

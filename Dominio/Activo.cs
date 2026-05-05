@@ -7,8 +7,8 @@ namespace Dominio
 {
     public class Activo
     {
-        private static int UltimoId { get; set; } = 0001;
-        public int Id { get; set; }
+        private static int UltimoId { get; set; } = 1;
+        public string CodigoAlfanumerico { get; set; }
 
         public string Nombre { get; set; }
         public TipoActivo UnActivo { get; set; }
@@ -20,20 +20,30 @@ namespace Dominio
 
         public Activo(string nombre, TipoActivo activo, int criticidad, Cuenta cuenta, bool backup)
         {
-            Id = UltimoId++;
+
             Nombre = nombre;
             UnActivo = activo;
             Criticidad = criticidad;
             CuentaResponsable = cuenta;
             TieneBackup = backup;
-
+            CodigoAlfanumerico = CalcularCodigo();
         }
 
-        //TODO
-        public void CalcularCodigo()
+        public string CalcularCodigo()
         {
-
-
+            string nuevoId;
+            if (UltimoId > 99)
+            {
+               nuevoId = Nombre + "0" +  UltimoId++;
+            }else if(UltimoId > 9)
+            {
+                nuevoId = Nombre + "00" + UltimoId++;
+            }
+            else
+            {
+                nuevoId = Nombre + "000" + UltimoId++;
+            }
+            return nuevoId;
         }
 
         public void Validar()
@@ -62,7 +72,7 @@ namespace Dominio
 
         public Activo()
         {
-            Id = UltimoId++;
+            CodigoAlfanumerico = CalcularCodigo();
         }
     }
 }
