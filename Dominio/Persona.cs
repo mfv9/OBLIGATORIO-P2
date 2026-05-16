@@ -14,16 +14,15 @@ namespace Dominio
 
         public Persona(string cedula, string nombre, string email, int telefono, string pass)
         {
-            Cedula = cedula;
+            Cedula = cedula.Trim();
             Nombre = nombre;
-            Email = email;
+            Email = email.Trim();
             Telefono = telefono;
             Password = pass;
         }
 
         public void Validar()
         {
-
             if (String.IsNullOrEmpty(Nombre))
             {
                 throw new Exception("No puedes tener el nombre vacio");
@@ -44,6 +43,10 @@ namespace Dominio
             {
                 throw new Exception("El telefono debe tener 9 numeros y no puede ser negativo");
             }
+            if (Cedula.Contains(" ") || Email.Contains(" "))
+            {
+                throw new Exception("No pueden haber espacios");
+            }
 
 
         }
@@ -58,7 +61,7 @@ namespace Dominio
             return false;
         }
 
- 
+
 
         public override bool Equals(object? obj)
         {
