@@ -47,7 +47,7 @@ namespace Dominio
             {
                 throw new Exception("No pueden haber espacios");
             }
-
+            
 
         }
 
@@ -61,8 +61,6 @@ namespace Dominio
             return false;
         }
 
-
-
         public override bool Equals(object? obj)
         {
             if (obj is Persona)
@@ -73,8 +71,6 @@ namespace Dominio
             }
 
             return false;
-
-
         }
 
         public override string ToString()

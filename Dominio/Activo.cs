@@ -20,7 +20,6 @@ namespace Dominio
 
         public Activo(string nombre, TipoActivo activo, int criticidad, Cuenta cuenta, bool backup)
         {
-
             Nombre = nombre;
             UnActivo = activo;
             Criticidad = criticidad;
