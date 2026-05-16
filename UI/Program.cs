@@ -26,11 +26,18 @@ namespace UI
 
                 if (op.Equals(1))
                 {
-                    foreach (Activo a in s.GetActivoPorPersona())
+                    foreach (Persona p in s.GetPersonas())
                     {
-                        Console.WriteLine($"{a.CuentaResponsable.Titular}\n {a.Nombre} - {a.UnActivo}");
-                    }
+                        Console.WriteLine($"{p.Nombre} ({p.Cedula})");
 
+                        foreach (Activo a in s.GetActivos())
+                        {
+                            if (a.CuentaResponsable.Titular.Equals(p))
+                            {
+                                Console.WriteLine($"{a.Nombre} - {a.UnActivo}\n");
+                            }
+                        }
+                    }
 
                 }
                 else if (op.Equals(2))
@@ -78,7 +85,7 @@ namespace UI
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e.Message); //TODO 
+                        Console.WriteLine(e.Message); 
                     }
 
                 }
