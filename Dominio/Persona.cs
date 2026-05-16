@@ -66,7 +66,7 @@ namespace Dominio
             {
                 Persona p = (Persona)obj;
                 return Cedula == p.Cedula ||
-                   Email == p.Email;
+                   Email.ToUpper() == p.Email.ToUpper();
             }
 
             return false;
