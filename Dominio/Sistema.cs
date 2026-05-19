@@ -59,15 +59,16 @@ namespace Dominio
         }
 
 
-        public List<Incidente> GetIncidentesPorPersona(int iDCuenta)
+        public List<Incidente> GetIncidentesPorPersona(string cedula)
         {
             List<Incidente> ret = new List<Incidente>();
             foreach (Incidente i in _incidentes)
             {
-                if (i.ActivoAfectado.CuentaResponsable.Id.Equals(iDCuenta))
+                if (i.ActivoAfectado.CuentaResponsable.Titular.Cedula.Equals(cedula))
                 {
                     ret.Add(i);
-                } 
+                }
+               
             }
             return ret; 
         }

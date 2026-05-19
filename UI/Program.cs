@@ -42,20 +42,26 @@ namespace UI
                 }
                 else if (op.Equals(2))
                 {
-                    foreach (Cuenta c in s.GetCuentas())
-                    {
-                        Console.WriteLine($"ID: {c.Id} - CI : {c.Titular.Cedula} - {c.Titular.Email} \n");
-                    }
+                    Console.WriteLine($"Ingrese la cedula de la persona que quieres consultar");
 
-                    Console.WriteLine($"Seleccione el ID de la cuenta a la que quiere inspeccionar");
-
-                    int iDPersona = int.Parse(Console.ReadLine());
+                    string cedula = Console.ReadLine();
                     Console.Clear();
+                    List<Incidente> ret = s.GetIncidentesPorPersona(cedula);
 
-                    foreach (Incidente i in s.GetIncidentesPorPersona(iDPersona))
+                    if (ret.Count.Equals(0))
                     {
-                        Console.WriteLine(i);
+                        Console.WriteLine("Esta cuenta no esta involucrada en incidentes");
+
                     }
+                    else
+                    {
+                        foreach (Incidente i in s.GetIncidentesPorPersona(cedula))
+                        {
+                            Console.WriteLine(i);
+                        }
+                    }
+
+
                 }
                 else if (op.Equals(3))
                 {
@@ -85,7 +91,7 @@ namespace UI
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e.Message); 
+                        Console.WriteLine(e.Message);
                     }
 
                 }
