@@ -34,6 +34,7 @@ namespace Dominio
         public Cuenta()
         {
             Id = UltimoId++;
+            
         }
 
         public override string ToString()

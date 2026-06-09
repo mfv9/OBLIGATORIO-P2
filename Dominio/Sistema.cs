@@ -137,6 +137,21 @@ namespace Dominio
             return null;
         }
 
+        public List<Activo> FindActivosByPersona(int personaId)
+        {
+            List<Activo> resultado = new List<Activo>();
+            foreach (Activo a in _activos)
+            {
+                if (a.CuentaResponsable != null &&
+                    a.CuentaResponsable.Titular != null &&
+                    a.CuentaResponsable.Titular.Id == personaId)
+                {
+                    resultado.Add(a);
+                }
+            }
+            return resultado;
+        }
+
         private void PrecargarDatos()
         {
             Persona p1 = new Persona("49067314", "Juan", "juan123@gmail.com", 098337697, "xxx");
@@ -229,6 +244,39 @@ namespace Dominio
             op1.Telefono = 12345678;
             op1.Rol = "Operador";
 
+            Cuenta c13 = new Cuenta();
+            {
+                c13.Titular = op1;
+                c13.TieneMfa = true;
+            }
+            Cuenta c14 = new Cuenta();
+            {
+                c14.Titular = op1;
+                c14.TieneMfa = false;
+
+            }
+
+            Activo a30 = new Activo();
+            a30.CodigoAlfanumerico = "PC-MVD-2026-001";
+            a30.Nombre = "Lenovo Legion LOQ (IBM)";
+            a30.UnActivo = TipoActivo.PC;
+            a30.Criticidad = 5;
+            a30.CuentaResponsable = c13;
+            a30.TieneBackup = true;
+
+            Activo a31 = new Activo();
+            a31.CodigoAlfanumerico = "TABLET-CANELONES-2026-001";
+            a31.Nombre = "Samsung Galaxy Tab S9";
+            a31.UnActivo = TipoActivo.MOVIL;
+            a31.Criticidad = 3;
+            a31.CuentaResponsable = c14;
+            a31.TieneBackup = false;
+
+            AltaActivo(a30);
+            AltaActivo(a31);
+
+
+
 
             AltaPersona(p1);
             AltaPersona(p2);
@@ -258,6 +306,9 @@ namespace Dominio
             AltaCuenta(c10);
             AltaCuenta(c11);
             AltaCuenta(c12);
+            AltaCuenta(c13);
+            AltaCuenta(c14);
+
             AltaActivo(a1);
             AltaActivo(a2);
             AltaActivo(a3);

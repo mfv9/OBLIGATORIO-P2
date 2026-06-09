@@ -28,6 +28,12 @@ namespace Dominio
             CodigoAlfanumerico = CalcularCodigo();
         }
 
+        public Activo()
+        {
+            CodigoAlfanumerico = CalcularCodigo();
+
+        }
+
         public string CalcularCodigo()
         {
             string nuevoId;
@@ -69,9 +75,6 @@ namespace Dominio
 
 
 
-        public Activo()
-        {
-            CodigoAlfanumerico = CalcularCodigo();
-        }
+       
     }
 }

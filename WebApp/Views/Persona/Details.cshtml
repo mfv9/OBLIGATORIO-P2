@@ -1,9 +1,10 @@
 ﻿@using Dominio
 @model Persona
-<h1>Detalles</h1>
+
 <div>
-    <h4>@Model.Nombre</h4>
+    <h1>Perfil</h1>
     <hr />
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
     <dl class="row">
 
         <dt class="col-sm-2">
@@ -11,6 +12,7 @@
         </dt>
         <dd class="col-sm-10">
             @Model.Nombre
+
         </dd>
         <dt class="col-sm-2">
             Telefono
@@ -32,4 +34,53 @@
         <dd class="col-sm-10">
             @Model.Rol
         </dl>
-    </div>
+
+        <h2>Cuentas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                 Nombre
+                </th>
+                <th>
+                    Tiene Multifactor
+                </th>
+                <th>
+                    Fecha cambio de contraseña
+                </th>    
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var activo in (List<Dominio.Activo>)ViewBag.Activos)
+            {
+                <tr>
+                    <td>
+                        @activo.CuentaResponsable.Id
+                    </td>
+                    <td>
+                        @activo.CuentaResponsable.Titular
+                    </td>
+                    <td>
+                        @activo.CuentaResponsable.TieneMfa
+
+                    </td>
+                    <td>
+                        @activo.CuentaResponsable.FechaCambioPass
+                    </td>
+                    <td>
+                        @*   @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Desactivar", "Delete", new { id = item.Id }) *@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+</div>

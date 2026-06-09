@@ -45,10 +45,20 @@ namespace WebApp.Controllers
 
         public IActionResult Logout()
         {
+            if(HttpContext.Session.GetInt32("LogueadoId") is null)
+            {
+                return RedirectToAction("Login", "Auth");
 
+            }
             HttpContext.Session.Clear();
             return RedirectToAction("Login", "Auth");
 
     }
+
+        public IActionResult NoPermitido()
+        {
+            
+            return View();
+        }
 }
 }

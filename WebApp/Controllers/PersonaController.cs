@@ -34,7 +34,12 @@ namespace WebApp.Controllers
 
         public IActionResult Details(int id)
         {
-           
+            int? lid = HttpContext.Session.GetInt32("LogueadoId");
+            if(lid == null)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            ViewBag.activos = s.FindActivosByPersona(id); 
             return View(s.FindPersonaById(id));
         }
 
