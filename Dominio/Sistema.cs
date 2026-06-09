@@ -215,6 +215,7 @@ namespace Dominio
             admin1.Id = 20;
             admin1.Cedula = "123456789410";
             admin1.Email = "admin@gmail";
+            admin1.Telefono = 123456789;
             admin1.Password = "admin1234";
             admin1.Rol = "Administrador";
 

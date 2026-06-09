@@ -25,6 +25,7 @@ namespace WebApp.Controllers
             }
             else
             {
+
                 HttpContext.Session.SetInt32("LogueadoId", buscado.Id);
                 HttpContext.Session.SetString("LogueadoNombre", buscado.Nombre);
                 HttpContext.Session.SetString("LogueadoRol", buscado.Rol);
@@ -35,7 +36,7 @@ namespace WebApp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Details", "Persona");
+                    return RedirectToAction("Details", "Persona", new { id = buscado.Id });
 
                 }
             }
