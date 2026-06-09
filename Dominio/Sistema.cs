@@ -11,10 +11,23 @@ namespace Dominio
         private List<Activo> _activos = new List<Activo>();
         private List<Incidente> _incidentes = new List<Incidente>();
 
-        public Sistema()
+        #region
+        private Sistema()
         {
             PrecargarDatos();
         }
+
+        private static Sistema instancia = null;
+        public static Sistema getInstance()
+        {
+            if (instancia == null)
+            {
+                instancia = new Sistema();
+            }
+            return instancia;
+        }
+
+        #endregion
 
         public void AltaCuenta(Cuenta cuenta)
         {

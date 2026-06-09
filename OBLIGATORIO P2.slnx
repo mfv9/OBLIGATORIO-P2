@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Dominio/Dominio.csproj" />
   <Project Path="UI/UI.csproj" />
+  <Project Path="WebApp/WebApp.csproj" Id="70f132f9-61bf-4fa3-bdb0-49cc9834ffd1" />
 </Solution>
