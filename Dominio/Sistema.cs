@@ -65,7 +65,7 @@ namespace Dominio
         {
             return _cuentas;
         }
-       
+
         public List<Persona> GetPersonas()
         {
             return _personas;
@@ -81,12 +81,12 @@ namespace Dominio
                 {
                     ret.Add(i);
                 }
-               
+
             }
-            return ret; 
+            return ret;
         }
 
-    
+
 
         public List<Activo> ActivoCarecienteDeBackup()
         {
@@ -111,6 +111,31 @@ namespace Dominio
             return _incidentes;
         }
 
+        //METODOS WEBAPP
+
+        public Persona VerificarExistencia(string mail, string pass)
+        {
+            foreach (Persona p in _personas)
+            {
+                if (p.Email == mail && p.Password == pass)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
+
+        public Persona FindPersonaById(int id)
+        {
+            foreach (Persona persona in _personas)
+            {
+                if (persona.Id == id)
+                {
+                    return persona;
+                }
+            }
+            return null;
+        }
 
         private void PrecargarDatos()
         {
@@ -184,6 +209,26 @@ namespace Dominio
             Incidente i29 = new Ramsomware(false, true, new DateTime(2026, 01, 01), a15, "xxx", Estado.CONTENIDO, 1, 2);
             Incidente i30 = new Ramsomware(true, true, new DateTime(2026, 01, 01), a14, "xxx", Estado.ABIERTO, 1, 2);
 
+            //PRECARGA CONSTRUCTORES VACIOS WEBAPP
+            Persona admin1 = new Persona();
+            admin1.Nombre = "Admin";
+            admin1.Id = 20;
+            admin1.Cedula = "123456789410";
+            admin1.Email = "admin@gmail";
+            admin1.Password = "admin1234";
+            admin1.Rol = "Administrador";
+
+            Persona op1 = new Persona();
+            op1.Nombre = "Pepe";
+            op1.Id = 21;
+
+            op1.Email = "pepe@gmail.com";
+            op1.Password = "persona1234";
+            op1.Cedula = "123456789";
+            op1.Telefono = 12345678;
+            op1.Rol = "Operador";
+
+
             AltaPersona(p1);
             AltaPersona(p2);
             AltaPersona(p3);
@@ -196,6 +241,10 @@ namespace Dominio
             AltaPersona(p10);
             AltaPersona(p11);
             AltaPersona(p12);
+            AltaPersona(admin1);
+            AltaPersona(op1);
+
+
             AltaCuenta(c1);
             AltaCuenta(c2);
             AltaCuenta(c3);

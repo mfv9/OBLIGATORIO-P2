@@ -1,0 +1,49 @@
+﻿@using Dominio
+@model Persona
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <input asp-for="Nombre" class="form-control" />
+
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Cedula</label>
+                <input asp-for="Cedula"  class="form-control" />
+
+            </div>
+
+            
+            <div class="form-group">
+                <label class="control-label">Telefono</label>
+                <input asp-for="Telefono"  class="form-control" />
+
+            </div>
+          
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" />
+
+            </div>
+
+          
+
+     
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<p>@ViewBag.msg</p>

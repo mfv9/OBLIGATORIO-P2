@@ -1,13 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@{
+    int? lid = Context.Session.GetInt32("LogueadoId");
+    string lrol = Context.Session.GetString("LogueadoRol");
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApp</title>
+    <title>@ViewData["Title"] - webapp</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/webapp.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -23,9 +28,47 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+
+                        @if (lid == null)
+                        {
+                            @* <a class="nav-link text-dark" asp-area="" asp-controller="VideoJuego" asp-action="Index">Ver juegos</a> *@
+
+                          
+                            @* Acá van los botones que ve el deslogueado *@
+
+
+                        }
+                        else
+                        {
+                            @* Acá van los botones que ven los dos roles *@
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                            </li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Details">Ver perfil</a>
+
+
+
+                            if (lrol == "Administrador")
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="Index">Ver clientes</a>
+
+                            }
+                            else
+                            {
+                                @* acá van los botones que ve solo el cliente *@
+
+                            }
+
+                        }
+
+
+
+
+
+
+
+                      
                     </ul>
                 </div>
             </div>
@@ -39,7 +82,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2026 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2026 - webapp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

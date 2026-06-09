@@ -6,19 +6,30 @@ namespace Dominio
 {
     public class Persona
     {
+        private static int UltimoId { get; set; } = 1;
+        public int Id { get; set; }
         public string Cedula { get; set; }
         public string Nombre { get; set; }
         public string Email { get; set; }
         public int Telefono { get; set; }
         public string Password { get; set; }
+        public string Rol {  get; set; }
 
         public Persona(string cedula, string nombre, string email, int telefono, string pass)
         {
+            Id = UltimoId++;
             Cedula = cedula.Trim();
             Nombre = nombre;
             Email = email.Trim();
             Telefono = telefono;
             Password = pass;
+            Rol = "Operador";
+        }
+
+        public Persona()
+        {
+            Id = UltimoId++;
+            Rol = "Anonimo";
         }
 
         public void Validar()
@@ -31,7 +42,7 @@ namespace Dominio
             {
                 throw new Exception($"El mail debe contener el arroba (@)");
             }
-            if (Cedula == "" || Cedula.Length < 8)
+            if (Cedula == "" /*|| Cedula.Length < 8*/)
             {
                 throw new Exception("La cedula no puede estar vacia y debe tener mas de 8 caracteres");
             }
@@ -78,9 +89,6 @@ namespace Dominio
             return $"{Nombre}";
         }
 
-        public Persona()
-        {
-
-        }
+        
     }
 }
