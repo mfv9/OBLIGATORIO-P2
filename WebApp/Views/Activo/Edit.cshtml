@@ -3,19 +3,20 @@
 <h1>Editar</h1>
 <h4>Subtitulo</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
+<form method="post">
 
-          <p>Esta seguro crack?</p>
-           
-            <div class="form-group">
-                <input type="submit" value="Desasociar" class="btn btn-primary" />
-            </div>
-        </form>
+    <input type="hidden" asp-for="CodigoAlfanumerico" />
+
+    <p>¿Estas seguro cabron?</p>
+
+    <div class="form-group">
+        <input type="submit" value="Desasociar" class="btn btn-primary" />
     </div>
-</div>
+
+</form>
 
 <div>
-    <a asp-action="Index">Volver a la lista</a>
+    <a asp-controller="Persona" asp-action="Index">
+        Volver a la lista
+    </a>
 </div>

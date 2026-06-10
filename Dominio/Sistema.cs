@@ -109,7 +109,7 @@ namespace Dominio
 
         public List<Activo> GetActivos()
         {
-            
+
             return _activos;
         }
 
@@ -159,24 +159,26 @@ namespace Dominio
             _activos.Sort();
             return resultado;
         }
+     
 
         public List<Activo> GetActivosById(int id)
         {
             List<Activo> ret = new List<Activo>();
             foreach (Activo a in _activos)
             {
-                if (a.CuentaResponsable.Id == id)
+                if (a.CuentaResponsable != null && a.CuentaResponsable.Id == id  )
                 {
                     ret.Add(a);
                 }
+
             }
-            
+
             return ret;
         }
 
         public Activo FindActivoById(int id)
         {
-            
+
             foreach (Activo a in _activos)
             {
                 if (a.CuentaResponsable.Id == id)
@@ -188,12 +190,25 @@ namespace Dominio
             return null;
         }
 
+        public Activo FindActivoByCodigo(string Codigo)
+        {
+
+            foreach (Activo a in _activos)
+            {
+                if (a.CodigoAlfanumerico == Codigo)
+                {
+                    return a;
+                }
+            }
+
+            return null;
+        }
         public List<Cuenta> GetCuentasPorId(int id)
         {
             List<Cuenta> ret = new List<Cuenta>();
             foreach (Cuenta c in _cuentas)
             {
-                if (c.Titular.Id  == id)
+                if (c.Titular.Id == id)
                 {
                     ret.Add(c);
                 }
@@ -204,14 +219,14 @@ namespace Dominio
 
         public void ActualizarActivo(Activo a)
         {
-            Activo buscado = FindActivoById(a.CuentaResponsable.Id);
+            Activo buscado = FindActivoByCodigo(a.CodigoAlfanumerico);
 
-            if(buscado != null)
+            if (buscado != null)
             {
                 buscado.CuentaResponsable = null;
             }
 
-    
+
         }
 
 

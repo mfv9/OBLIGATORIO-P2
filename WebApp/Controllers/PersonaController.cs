@@ -59,7 +59,7 @@ namespace WebApp.Controllers
                 return RedirectToAction("NoPermitido", "Auth");
             }
             
-            return View(s.FindActivosById(id));
+            return View(s.GetActivosById(id));
         }
 
     }

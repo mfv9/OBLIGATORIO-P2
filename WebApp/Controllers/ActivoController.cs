@@ -11,7 +11,7 @@ namespace WebApp.Controllers
             return View();
         }
 
-        public IActionResult Details (int id)
+        public IActionResult Details(int id)
         {
             int? lid = HttpContext.Session.GetInt32("LogueadoId");
             string lrol = HttpContext.Session.GetString("LogueadoRol");
@@ -28,16 +28,17 @@ namespace WebApp.Controllers
             return View(s.GetActivosById(id));
         }
 
-        public IActionResult Edit ()
+        public IActionResult Edit(string codigo)
         {
-            return View();
+            Activo a = s.FindActivoByCodigo(codigo);
+            return View(a);
         }
 
         [HttpPost]
         public IActionResult Edit(Activo a)
         {
             s.ActualizarActivo(a);
-            return View();
+            return RedirectToAction("Index","Persona");
         }
 
 
