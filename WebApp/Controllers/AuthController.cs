@@ -36,7 +36,7 @@ namespace WebApp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Details", "Persona", new { id = buscado.Id });
+                    return RedirectToAction("Menu", "Home", new { id = buscado.Id });
 
                 }
             }

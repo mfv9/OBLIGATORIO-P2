@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dominio
 {
-    public class Activo
+    public class Activo : IComparable<Activo>
     {
         private static int UltimoId { get; set; } = 1;
         public string CodigoAlfanumerico { get; set; }
@@ -39,8 +39,9 @@ namespace Dominio
             string nuevoId;
             if (UltimoId > 99)
             {
-               nuevoId = Nombre + "0" +  UltimoId++;
-            }else if(UltimoId > 9)
+                nuevoId = Nombre + "0" + UltimoId++;
+            }
+            else if (UltimoId > 9)
             {
                 nuevoId = Nombre + "00" + UltimoId++;
             }
@@ -73,8 +74,20 @@ namespace Dominio
             return $"{Nombre} - Criticidad: {Criticidad} - Tipo de activo: {UnActivo} - Cuenta Responsable: {CuentaResponsable} \n ";
         }
 
-
-
-       
+        public int CompareTo(Activo? other)
+        {
+            if (CodigoAlfanumerico.CompareTo(other.CodigoAlfanumerico) > 0)
+            {
+                return 1;
+            }
+            else if (CodigoAlfanumerico.CompareTo(other.CodigoAlfanumerico) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }

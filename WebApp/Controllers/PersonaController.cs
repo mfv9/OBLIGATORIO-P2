@@ -39,8 +39,27 @@ namespace WebApp.Controllers
             {
                 return RedirectToAction("NoPermitido", "Auth");
             }
-            ViewBag.activos = s.FindActivosByPersona(id); 
+            if(lid != id)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            ViewBag.activos = s.FindActivosById(id); 
             return View(s.FindPersonaById(id));
+        }
+
+        public IActionResult Activos(int id)
+        {
+            int? lid = HttpContext.Session.GetInt32("LogueadoId");
+            if (lid == null)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            if (lid != id)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            
+            return View(s.FindActivosById(id));
         }
 
     }

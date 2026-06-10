@@ -41,11 +41,17 @@ namespace Dominio
         public void AltaPersona(Persona persona)
         {
             persona.Validar();
-            if (_personas.Contains(persona))
+            if (!_personas.Contains(persona))
+            {
+                _personas.Add(persona);
+
+            }
+            else
             {
                 throw new Exception("Ya existe la cedula o el mail");
             }
-            _personas.Add(persona);
+
+
 
         }
 
@@ -103,6 +109,7 @@ namespace Dominio
 
         public List<Activo> GetActivos()
         {
+            
             return _activos;
         }
 
@@ -137,7 +144,7 @@ namespace Dominio
             return null;
         }
 
-        public List<Activo> FindActivosByPersona(int personaId)
+        public List<Activo> FindActivosById(int personaId)
         {
             List<Activo> resultado = new List<Activo>();
             foreach (Activo a in _activos)
@@ -149,6 +156,7 @@ namespace Dominio
                     resultado.Add(a);
                 }
             }
+            _activos.Sort();
             return resultado;
         }
 

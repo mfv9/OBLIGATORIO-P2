@@ -42,7 +42,7 @@ namespace Dominio
             {
                 throw new Exception($"El mail debe contener el arroba (@)");
             }
-            if (Cedula == "" || Cedula.Length < 8 || int.Parse(Cedula) < 0)
+            if (Cedula == "" || Cedula.Length < 8)
             {
                 throw new Exception("La cedula no puede estar vacia y debe tener mas de 8 caracteres");
             }

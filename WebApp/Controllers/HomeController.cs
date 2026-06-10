@@ -1,3 +1,4 @@
+using Dominio;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApp.Models;
@@ -6,8 +7,25 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        Sistema s = Sistema.getInstance();
         public IActionResult Index()
         {
+            return View();
+        }
+
+       public IActionResult Menu(int id)
+        {
+            int? lid = HttpContext.Session.GetInt32("LogueadoId");
+            if (lid == null)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            if (lid != id)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            ViewBag.Persona = s.FindPersonaById(id);
+
             return View();
         }
 

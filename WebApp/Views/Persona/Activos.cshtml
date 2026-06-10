@@ -1,0 +1,59 @@
+﻿@using Dominio
+@model List<Activo>
+<h2>Activos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Codigo Alfanumerico
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Tipo de activo 
+            </th>
+            <th>
+                Criticidad
+            </th>
+
+            <th>
+                Cuenta responsable
+            </th>
+            <th>
+                Tiene Backup
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var activo in Model)
+        {
+            <tr>
+                <td>
+                    @activo.CodigoAlfanumerico
+                </td>
+                <td>
+                    @activo.Nombre
+                </td>
+                <td>
+                    @activo.UnActivo
+
+                </td>
+                <td>
+                    @activo.Criticidad
+                </td>
+                <td>
+                    @activo.CuentaResponsable
+                </td>
+                <td>
+                    @activo.TieneBackup
+                </td>
+                <td>
+                    @*   @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Desactivar", "Delete", new { id = item.Id }) *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
