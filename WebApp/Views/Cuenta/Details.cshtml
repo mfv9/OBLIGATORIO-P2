@@ -1,0 +1,45 @@
+﻿@using Dominio
+@model List<Cuenta>
+<h2>Cuentas</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Tiene Multifactor
+            </th>
+            <th>
+                Fecha cambio de contraseña
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cuentas in Model)
+        {
+            <tr>
+                <td>
+                    @cuentas.Id
+                </td>
+                <td>
+                    @cuentas.Titular
+                </td>
+                <td>
+                    @cuentas.TieneMfa
+
+                </td>
+                <td>
+                    @cuentas.FechaCambioPass
+                </td>
+                <td>
+                      @Html.ActionLink("Ver activos", "Details", "Activo", new { id = cuentas.Id }) |
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -160,6 +160,62 @@ namespace Dominio
             return resultado;
         }
 
+        public List<Activo> GetActivosById(int id)
+        {
+            List<Activo> ret = new List<Activo>();
+            foreach (Activo a in _activos)
+            {
+                if (a.CuentaResponsable.Id == id)
+                {
+                    ret.Add(a);
+                }
+            }
+            
+            return ret;
+        }
+
+        public Activo FindActivoById(int id)
+        {
+            
+            foreach (Activo a in _activos)
+            {
+                if (a.CuentaResponsable.Id == id)
+                {
+                    return a;
+                }
+            }
+
+            return null;
+        }
+
+        public List<Cuenta> GetCuentasPorId(int id)
+        {
+            List<Cuenta> ret = new List<Cuenta>();
+            foreach (Cuenta c in _cuentas)
+            {
+                if (c.Titular.Id  == id)
+                {
+                    ret.Add(c);
+                }
+
+            }
+            return ret;
+        }
+
+        public void ActualizarActivo(Activo a)
+        {
+            Activo buscado = FindActivoById(a.CuentaResponsable.Id);
+
+            if(buscado != null)
+            {
+                buscado.CuentaResponsable = null;
+            }
+
+    
+        }
+
+
+
         private void PrecargarDatos()
         {
             Persona p1 = new Persona("49067314", "Juan", "juan123@gmail.com", 098337697, "xxx");
