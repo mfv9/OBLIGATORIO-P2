@@ -39,15 +39,15 @@ namespace Dominio
             string nuevoId;
             if (UltimoId > 99)
             {
-                nuevoId = Nombre + "0" + UltimoId++;
+                nuevoId = "0" + UltimoId++;
             }
             else if (UltimoId > 9)
             {
-                nuevoId = Nombre + "00" + UltimoId++;
+                nuevoId = "00" + UltimoId++;
             }
             else
             {
-                nuevoId = Nombre + "000" + UltimoId++;
+                nuevoId = "000" + UltimoId++;
             }
             return nuevoId;
         }
