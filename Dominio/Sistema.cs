@@ -166,7 +166,7 @@ namespace Dominio
             List<Activo> ret = new List<Activo>();
             foreach (Activo a in _activos)
             {
-                if (a.CuentaResponsable != null && a.CuentaResponsable.Id == id  )
+                if (a.CuentaResponsable != null && a.CuentaResponsable.Titular.Id == id  )
                 {
                     ret.Add(a);
                 }
@@ -175,6 +175,7 @@ namespace Dominio
 
             return ret;
         }
+
 
         public Activo FindActivoById(int id)
         {
