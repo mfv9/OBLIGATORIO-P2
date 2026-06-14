@@ -352,8 +352,89 @@ namespace Dominio
             a31.CuentaResponsable = c14;
             a31.TieneBackup = false;
 
+            Activo a32 = new Activo();
+            a32.CodigoAlfanumerico = "LAPTOP-MVD-2026-001";
+            a32.Nombre = "Dell Latitude 5440";
+            a32.UnActivo = TipoActivo.SERVER;
+            a32.Criticidad = 5;
+            a32.CuentaResponsable = c13;
+            a32.TieneBackup = true;
+
+            Activo a33 = new Activo();
+            a33.CodigoAlfanumerico = "PC-SALTO-2026-001";
+            a33.Nombre = "HP ProDesk 400";
+            a33.UnActivo = TipoActivo.PC;
+            a33.Criticidad = 4;
+            a33.CuentaResponsable = c14;
+            a33.TieneBackup = true;
+
+            Activo a34 = new Activo();
+            a34.CodigoAlfanumerico = "CEL-MALDONADO-2026-001";
+            a34.Nombre = "iPhone 15";
+            a34.UnActivo = TipoActivo.MOVIL;
+            a34.Criticidad = 3;
+            a34.CuentaResponsable = c13;
+            a34.TieneBackup = true;
+
+            Activo a35 = new Activo();
+            a35.CodigoAlfanumerico = "SERV-WEB-2026-001";
+            a35.Nombre = "Servidor Web Apache";
+            a35.UnActivo = TipoActivo.PC;
+            a35.Criticidad = 5;
+            a35.CuentaResponsable = c14;
+            a35.TieneBackup = true;
+
+            Activo a36 = new Activo();
+            a36.CodigoAlfanumerico = "ROUTER-CENTRAL-2026-001";
+            a36.Nombre = "Router Cisco ISR";
+            a36.UnActivo = TipoActivo.SERVER;
+            a36.Criticidad = 5;
+            a36.CuentaResponsable = c13;
+            a36.TieneBackup = true;
+
+            Activo a37 = new Activo();
+            a37.CodigoAlfanumerico = "TABLET-MVD-2026-002";
+            a37.Nombre = "Lenovo Tab P12";
+            a37.UnActivo = TipoActivo.MOVIL;
+            a37.Criticidad = 2;
+            a37.CuentaResponsable = c14;
+            a37.TieneBackup = false;
+
+            Activo a38 = new Activo();
+            a38.CodigoAlfanumerico = "CRM-EMPRESA-2026-001";
+            a38.Nombre = "Sistema CRM";
+            a38.UnActivo = TipoActivo.SERVER;
+            a38.Criticidad = 4;
+            a38.CuentaResponsable = c13;
+            a38.TieneBackup = true;
+
+            Activo a39 = new Activo();
+            a39.CodigoAlfanumerico = "SWITCH-RED-2026-001";
+            a39.Nombre = "Switch HP Aruba";
+            a39.UnActivo = TipoActivo.MOVIL;
+            a39.Criticidad = 4;
+            a39.CuentaResponsable = c14;
+            a39.TieneBackup = false;
+
+            Activo a40 = new Activo();
+            a40.CodigoAlfanumerico = "NOTEBOOK-COLONIA-2026-001";
+            a40.Nombre = "Lenovo ThinkPad E14";
+            a40.UnActivo = TipoActivo.SERVER;
+            a40.Criticidad = 3;
+            a40.CuentaResponsable = c13;
+            a40.TieneBackup = true;
+
             AltaActivo(a30);
             AltaActivo(a31);
+            AltaActivo(a32);
+            AltaActivo(a33);
+            AltaActivo(a34);
+            AltaActivo(a35);
+            AltaActivo(a36);
+            AltaActivo(a37);
+            AltaActivo(a38);
+            AltaActivo(a39);
+            AltaActivo(a40);
 
 
 
