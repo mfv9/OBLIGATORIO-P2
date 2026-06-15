@@ -47,20 +47,7 @@ namespace WebApp.Controllers
             return View(s.FindPersonaById(id));
         }
 
-        public IActionResult Activos(int id)
-        {
-            int? lid = HttpContext.Session.GetInt32("LogueadoId");
-            if (lid == null)
-            {
-                return RedirectToAction("NoPermitido", "Auth");
-            }
-            if (lid != id)
-            {
-                return RedirectToAction("NoPermitido", "Auth");
-            }
-            
-            return View(s.GetActivosById(id));
-        }
+       
 
     }
 }

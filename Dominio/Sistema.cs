@@ -159,7 +159,22 @@ namespace Dominio
             _activos.Sort();
             return resultado;
         }
-     
+
+        public List<Activo> GetActivosPorCuenta(int id)
+        {
+            List<Activo> ret = new List<Activo>();
+            foreach (Activo a in _activos)
+            {
+                if (a.CuentaResponsable != null && a.CuentaResponsable.Id == id)
+                {
+                    ret.Add(a);
+                }
+
+            }
+
+            return ret;
+        }
+
 
         public List<Activo> GetActivosById(int id)
         {

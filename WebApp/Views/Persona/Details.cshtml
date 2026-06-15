@@ -43,44 +43,53 @@
                         ID
                     </th>
                     <th>
-                 Nombre
-                </th>
-                <th>
-                    Tiene Multifactor
-                </th>
-                <th>
-                    Fecha cambio de contraseña
-                </th>    
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var activo in (List<Dominio.Activo>)ViewBag.Activos)
-            {
-                <tr>
-                    <td>
-                        @activo.CuentaResponsable.Id
-                    </td>
-                    <td>
-                        @activo.CuentaResponsable.Titular
-                    </td>
-                    <td>
-                        @activo.CuentaResponsable.TieneMfa
+                        Nombre
+                    </th>
+                    <th>
+                        Tiene Multifactor
+                    </th>
+                    <th>
+                        Fecha cambio de contraseña
+                    </th>
+                </tr>
+            </thead>
+            @{
+                List<Cuenta> cuentasMostradas = new List<Cuenta>();
+            }
+            <tbody>
+                @foreach (var activo in (List<Dominio.Activo>)ViewBag.Activos)
+                {
+                    if (!cuentasMostradas.Contains(activo.CuentaResponsable))
+                    {
+                        cuentasMostradas.Add(activo.CuentaResponsable);
+                        <tr>
+                            <td>
+                                @activo.CuentaResponsable.Id
+                            </td>
+                            <td>
+                                @activo.CuentaResponsable.Titular
+                            </td>
+                            <td>
+                                @activo.CuentaResponsable.TieneMfa
 
-                    </td>
-                    <td>
-                        @activo.CuentaResponsable.FechaCambioPass
-                    </td>
-                    <td>
-                        @*   @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                            </td>
+                            <td>
+                                @activo.CuentaResponsable.FechaCambioPass
+                            </td>
+                            <td>
+                                @*   @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Desactivar", "Delete", new { id = item.Id }) *@
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                            </td>
+                        </tr>
+                    }
+                }
+
+                }
+            </tbody>
+        </table>
 
 
 
 
-</div>
+    </div>

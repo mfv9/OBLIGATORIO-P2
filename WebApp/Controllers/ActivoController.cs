@@ -25,7 +25,7 @@ namespace WebApp.Controllers
                 return RedirectToAction("NoPermitido", "Auth");
 
             }
-            return View(s.GetActivosById(id));
+            return View(s.GetActivosPorCuenta(id));
         }
 
         public IActionResult Edit(string codigo)
@@ -41,6 +41,20 @@ namespace WebApp.Controllers
             return RedirectToAction("Index","Persona");
         }
 
+        public IActionResult PersonaActivos(int id)
+        {
+            int? lid = HttpContext.Session.GetInt32("LogueadoId");
+            if (lid == null)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            if (lid != id)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
 
+            return View(s.GetActivosById(id));
+        }
     }
+
 }
