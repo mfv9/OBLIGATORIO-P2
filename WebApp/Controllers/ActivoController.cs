@@ -6,11 +6,7 @@ namespace WebApp.Controllers
     public class ActivoController : Controller
     {
         Sistema s = Sistema.getInstance();
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+       
         public IActionResult Details(int id)
         {
             int? lid = HttpContext.Session.GetInt32("LogueadoId");
@@ -66,6 +62,18 @@ namespace WebApp.Controllers
 
         public IActionResult Edit(string codigo)
         {
+            int? lid = HttpContext.Session.GetInt32("LogueadoId");
+            string lrol = HttpContext.Session.GetString("LogueadoRol");
+
+            if (lid == null)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            if (lrol != "Administrador")
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+
+            }
             Activo a = s.FindActivoByCodigo(codigo);
             return View(a);
         }
@@ -73,8 +81,17 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Edit(Activo a)
         {
-            s.DesasociarActivo(a);
-            return RedirectToAction("Index", "Persona");
+            try
+            {
+                s.DesasociarActivo(a);
+                return RedirectToAction("Index", "Persona");
+            }
+            catch (Exception e)
+            {
+                ViewBag.msg = e.Message;
+                return View(a);
+            }
+
         }
 
         public IActionResult PersonaActivos(int id)

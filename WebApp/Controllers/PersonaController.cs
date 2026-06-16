@@ -43,6 +43,7 @@ namespace WebApp.Controllers
             {
                 return RedirectToAction("NoPermitido", "Auth");
             }
+
             ViewBag.activos = s.FindActivosById(id); 
             return View(s.FindPersonaById(id));
         }
