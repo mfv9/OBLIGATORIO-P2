@@ -114,6 +114,7 @@ namespace Dominio
 
         public List<Incidente> GetIncidentes()
         {
+            _incidentes.Sort();
             return _incidentes;
         }
 

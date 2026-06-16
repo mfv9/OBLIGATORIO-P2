@@ -17,6 +17,9 @@
                 Codigo de activo
             </th>
             <th>
+                Tipo
+            <th/>
+            <th>
                 Severidad
             </th>
         </tr>
@@ -38,10 +41,14 @@
                 <td>
                     @item.ActivoAfectado.CodigoAlfanumerico
                 </td>
+
                 <td>
-                    comentar aca la severidad 
+                    @item.GetType().Name
+                <td/>
+                <td>
+                    @item.CalcularSeveridad()
                 </td>
-               
+
             </tr>
         }
     </tbody>

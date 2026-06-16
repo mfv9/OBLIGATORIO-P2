@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers
 {
-    public class IncidenteController : Controller
+    public class IncidenteController : Controller 
     {
         Sistema s = Sistema.getInstance();
         public IActionResult Index()
         {
-            return View();
+            return View(s.GetIncidentes());
         }
     }
 }

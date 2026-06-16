@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dominio
 {
-    public abstract class Incidente
+    public abstract class Incidente : IComparable<Incidente>
     {
         private static int UltimoId { get; set; } = 1;
         public int Id { get; set; }
@@ -39,6 +39,21 @@ namespace Dominio
         public override string ToString()
         {
             return $"{ActivoAfectado}Estado: {Estado} - Impacto: {Impacto} - Probabilidad: {Probabilidad}";
+        }
+
+        public int CompareTo(Incidente? other)
+        {
+            if (CalcularSeveridad().CompareTo(other.CalcularSeveridad()) > 0)
+            {
+                return 1;
+            }else if (CalcularSeveridad().CompareTo(other.CalcularSeveridad()) < 0)
+            {
+                return -1;
+            }else
+            {
+                return 0;
+            }
+
         }
     }
 }

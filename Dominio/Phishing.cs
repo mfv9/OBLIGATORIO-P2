@@ -56,7 +56,22 @@ namespace Dominio
 
         public override double CalcularSeveridad()
         {
-            throw new NotImplementedException();
+
+            double severidad = (Impacto * 12) + (Probabilidad * 8);
+
+
+            if (ActivoAfectado.TieneBackup)
+            {
+                severidad -= 15;
+            }
+
+
+            if (severidad > 100)
+            {
+                severidad = 100;
+            }
+            return severidad;
         }
     }
 }
+

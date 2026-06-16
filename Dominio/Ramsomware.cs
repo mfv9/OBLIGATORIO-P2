@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace Dominio
@@ -53,7 +54,28 @@ namespace Dominio
 
         public override double CalcularSeveridad()
         {
-            throw new NotImplementedException();
+            double severidad = (Impacto * 12) + (Probabilidad * 8);
+            if (DatosEncriptados)
+            {
+                severidad += 20;
+
+            }
+            else if (HuboExfiltracion)
+            {
+                severidad += 25;
+            }
+
+            if (ActivoAfectado.TieneBackup)
+            {
+                severidad -= 15;
+            }
+
+            if (severidad > 100)
+            {
+                severidad = 100;
+            }
+            return severidad;
         }
+
     }
 }

@@ -52,7 +52,6 @@ namespace WebApp.Controllers
                 Cuenta buscada = s.FindCuentaById(id);
                 if (buscada != null)
                 {
-                    
                     a.CuentaResponsable = buscada;
                     s.AltaActivo(a);
                     ViewBag.msg = "Activo creado correctamente";
@@ -60,9 +59,7 @@ namespace WebApp.Controllers
             }
             catch (Exception e)
             {
-
                 ViewBag.msg = "Error: " + e.Message;
-
             }
             return View();
         }
