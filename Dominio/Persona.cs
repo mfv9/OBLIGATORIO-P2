@@ -29,7 +29,7 @@ namespace Dominio
         public Persona()
         {
             Id = UltimoId++;
-            Rol = "Anonimo";
+            Rol = "Operador";
         }
 
         public void Validar()

@@ -25,38 +25,29 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                      
+
                         @if (lid == null)
                         {
-                            @* <a class="nav-link text-dark" asp-area="" asp-controller="VideoJuego" asp-action="Index">Ver juegos</a> *@
-
-                          
                             @* Acá van los botones que ve el deslogueado *@
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Iniciar Sesion</a>
                             </li>
 
                         }
                         else
                         {
                             @* Acá van los botones que ven los dos roles *@
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Menu" asp-route-id="@lid">Menu</a>
-                            </li>
-
-                          
+                            </li>                       
                             <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Details" asp-route-id="@lid">Ver perfil</a>
-
-
-
                             if (lrol == "Administrador")
                             {
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="Index">Ver clientes</a>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Incidente" asp-action="Index">Ver incidentes</a>
-
-
                             }
-                            else if(lrol == "Operador")
+                            else if (lrol == "Operador")
                             {
                                 @* acá van los botones que ve solo el cliente *@
 

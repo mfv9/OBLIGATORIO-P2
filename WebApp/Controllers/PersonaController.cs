@@ -23,6 +23,8 @@ namespace WebApp.Controllers
             {
                 s.AltaPersona(p);
                 ViewBag.msg = "Alta correcta";
+                return RedirectToAction("Index", "Home");
+
             }
             catch (Exception e)
             {

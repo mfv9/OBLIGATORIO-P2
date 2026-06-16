@@ -11,6 +11,7 @@ namespace Dominio
         private List<Activo> _activos = new List<Activo>();
         private List<Incidente> _incidentes = new List<Incidente>();
 
+        //PATRON SINGLETON
         #region
         private Sistema()
         {
@@ -32,19 +33,14 @@ namespace Dominio
         public void AltaCuenta(Cuenta cuenta)
         {
             cuenta.Validar();
-
             _cuentas.Add(cuenta);
         }
-
-
-
         public void AltaPersona(Persona persona)
         {
             persona.Validar();
             if (!_personas.Contains(persona))
             {
                 _personas.Add(persona);
-
             }
             else
             {
@@ -72,7 +68,6 @@ namespace Dominio
         public List<Persona> GetPersonas()
         {
             _personas.Sort();
-
             return _personas;
         }
 
@@ -86,12 +81,9 @@ namespace Dominio
                 {
                     ret.Add(i);
                 }
-
             }
             return ret;
         }
-
-
 
         public List<Activo> ActivoCarecienteDeBackup()
         {
@@ -108,7 +100,6 @@ namespace Dominio
 
         public List<Activo> GetActivos()
         {
-
             return _activos;
         }
 
@@ -119,7 +110,7 @@ namespace Dominio
         }
 
         //METODOS WEBAPP
-
+        #region
         public Persona VerificarExistencia(string mail, string pass)
         {
             foreach (Persona p in _personas)
@@ -255,8 +246,9 @@ namespace Dominio
             }
         }
 
+        #endregion
 
-
+        #region
         private void PrecargarDatos()
         {
             Persona p1 = new Persona("49067314", "Juan", "juan123@gmail.com", 098337697, "xxx");
@@ -460,10 +452,6 @@ namespace Dominio
             AltaActivo(a38);
             AltaActivo(a39);
             AltaActivo(a40);
-
-
-
-
             AltaPersona(p1);
             AltaPersona(p2);
             AltaPersona(p3);
@@ -540,6 +528,7 @@ namespace Dominio
             AltaIncidentes(i28);
             AltaIncidentes(i29);
             AltaIncidentes(i30);
+        #endregion
 
         }
     }
