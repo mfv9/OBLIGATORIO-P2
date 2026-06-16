@@ -10,7 +10,7 @@ namespace Dominio
         public int Id { get; set; }
 
         public Persona Titular { get; set; }
-        public bool  TieneMfa { get; set; }
+        public bool TieneMfa { get; set; }
         public DateTime FechaCambioPass {  get; set; }
 
         public Cuenta(Persona titular, bool tieneMfa, DateTime fechaCambioPass)
@@ -41,5 +41,16 @@ namespace Dominio
         {
             return $"{Titular}";
         }
+
+        //public override bool Equals(object? obj)
+        //{
+        //    if (obj is Cuenta)
+        //    {
+        //        Cuenta c = (Cuenta)obj;
+        //        return Titular == c.Titular;
+        //    }
+
+        //    return false;
+        //}
     }
 }

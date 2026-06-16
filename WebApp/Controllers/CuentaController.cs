@@ -20,7 +20,7 @@ namespace WebApp.Controllers
             {
                 return RedirectToAction("NoPermitido", "Auth");
             }
-            if(lrol != "Administrador")
+            if (lrol != "Administrador")
             {
                 return RedirectToAction("NoPermitido", "Auth");
 
@@ -28,5 +28,33 @@ namespace WebApp.Controllers
 
             return View(s.GetCuentasPorId(id));
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(int id)
+        {
+            try
+            {
+                Persona buscada = s.FindPersonaById(id);
+                if (buscada != null)
+                {
+                    Cuenta c = new Cuenta();
+                    c.Titular = buscada;
+                    s.AltaCuenta(c);
+                    ViewBag.msg = "Cuenta creada correctamente";
+                }
+            }
+            catch (Exception e)
+            {
+                ViewBag.msg = "Error: " + e.Message;
+            }
+            return View();
+        }
+
     }
 }
+

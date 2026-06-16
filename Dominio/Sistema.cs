@@ -34,9 +34,9 @@ namespace Dominio
             cuenta.Validar();
 
             _cuentas.Add(cuenta);
-
-
         }
+
+   
 
         public void AltaPersona(Persona persona)
         {
@@ -74,6 +74,8 @@ namespace Dominio
 
         public List<Persona> GetPersonas()
         {
+            _personas.Sort();
+
             return _personas;
         }
 

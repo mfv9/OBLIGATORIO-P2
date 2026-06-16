@@ -51,6 +51,8 @@
                 </td>
                 <td>
                     @Html.ActionLink("Ver cuentas", "Details", "Cuenta", new { id = item.Id })
+                    @Html.ActionLink("Crear cuenta", "Create", "Cuenta", new { id = item.Id })
+
                 </td>
             </tr>
         }

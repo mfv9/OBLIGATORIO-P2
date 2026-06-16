@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dominio
 {
-    public class Persona
+    public class Persona : IComparable<Persona>
     {
         private static int UltimoId { get; set; } = 1;
         public int Id { get; set; }
@@ -89,6 +89,20 @@ namespace Dominio
             return $"{Nombre}";
         }
 
-        
+        public int CompareTo(Persona? other)
+        {
+            if (Id.CompareTo(other.Id) > 0)
+            {
+                return 1;
+            }
+            else if (Id.CompareTo(other.Id) < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }
