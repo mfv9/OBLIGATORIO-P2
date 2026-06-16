@@ -33,14 +33,14 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int id)
+        public IActionResult Create(Activo a, int id)
         {
             try
             {
                 Cuenta buscada = s.FindCuentaById(id);
                 if (buscada != null)
                 {
-                    Activo a = new Activo();
+                    
                     a.CuentaResponsable = buscada;
                     s.AltaActivo(a);
                     ViewBag.msg = "Activo creado correctamente";

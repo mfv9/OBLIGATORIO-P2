@@ -50,9 +50,6 @@ namespace Dominio
             {
                 throw new Exception("Ya existe la cedula o el mail");
             }
-
-
-
         }
 
         public void AltaActivo(Activo activo)
