@@ -29,6 +29,18 @@ namespace WebApp.Controllers
         }
         public IActionResult Create()
         {
+            int? lid = HttpContext.Session.GetInt32("LogueadoId");
+            string lrol = HttpContext.Session.GetString("LogueadoRol");
+
+            if (lid == null)
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+            if (lrol != "Administrador")
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+
+            }
             return View();
         }
 
