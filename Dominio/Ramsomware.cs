@@ -51,6 +51,9 @@ namespace Dominio
             return base.ToString() + $" \n Datos Encriptados: {(DatosEncriptados ? "Si" : "No")} \n Exfiltracion: {(HuboExfiltracion ? "Si" : "No")}\n";
         }
 
-
+        public override double CalcularSeveridad()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

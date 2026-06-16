@@ -42,15 +42,6 @@ namespace Dominio
             return $"{Titular}";
         }
 
-        //public override bool Equals(object? obj)
-        //{
-        //    if (obj is Cuenta)
-        //    {
-        //        Cuenta c = (Cuenta)obj;
-        //        return Titular == c.Titular;
-        //    }
-
-        //    return false;
-        //}
+     
     }
 }

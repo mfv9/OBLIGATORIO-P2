@@ -35,7 +35,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int id)
+        public IActionResult Create(int id, bool mfa)
         {
             try
             {
@@ -43,6 +43,7 @@ namespace WebApp.Controllers
                 if (buscada != null)
                 {
                     Cuenta c = new Cuenta();
+                    c.TieneMfa = mfa;
                     c.Titular = buscada;
                     s.AltaCuenta(c);
                     ViewBag.msg = "Cuenta creada correctamente";

@@ -244,7 +244,7 @@ namespace Dominio
             return null;
         }
 
-        public void ActualizarActivo(Activo a)
+        public void DesasociarActivo(Activo a)
         {
             Activo buscado = FindActivoByCodigo(a.CodigoAlfanumerico);
 
@@ -252,8 +252,6 @@ namespace Dominio
             {
                 buscado.CuentaResponsable = null;
             }
-
-
         }
 
 

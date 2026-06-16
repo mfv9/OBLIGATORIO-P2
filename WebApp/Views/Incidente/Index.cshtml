@@ -1,0 +1,48 @@
+﻿@using Dominio
+@model List<Incidente>
+<h1>Lista de incidentes</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Fecha de reporte
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Codigo de activo
+            </th>
+            <th>
+                Severidad
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.FechaReporte
+                </td>
+                <td>
+                    @item.Estado
+                </td>
+                <td>
+                    @item.ActivoAfectado.CodigoAlfanumerico
+                </td>
+                <td>
+                    comentar aca la severidad 
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

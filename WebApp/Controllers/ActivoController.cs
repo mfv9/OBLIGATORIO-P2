@@ -64,7 +64,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Edit(Activo a)
         {
-            s.ActualizarActivo(a);
+            s.DesasociarActivo(a);
             return RedirectToAction("Index", "Persona");
         }
 

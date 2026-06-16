@@ -54,6 +54,9 @@ namespace Dominio
             return base.ToString() + $" \n Canal Usado: {CanalUsado} \n Entrego creedenciales: {(EntregoCredenciales ? "Si" : "No")} \n Hubo trasnferencia de datos {(TransferenciaDatos ? "Si" : "No")}\n";
         }
 
-
+        public override double CalcularSeveridad()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

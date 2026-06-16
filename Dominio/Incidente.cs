@@ -34,6 +34,8 @@ namespace Dominio
 
         }
 
+        public abstract double CalcularSeveridad();
+
         public override string ToString()
         {
             return $"{ActivoAfectado}Estado: {Estado} - Impacto: {Impacto} - Probabilidad: {Probabilidad}";
