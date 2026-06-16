@@ -36,7 +36,7 @@ namespace Dominio
             _cuentas.Add(cuenta);
         }
 
-   
+
 
         public void AltaPersona(Persona persona)
         {
@@ -183,7 +183,7 @@ namespace Dominio
             List<Activo> ret = new List<Activo>();
             foreach (Activo a in _activos)
             {
-                if (a.CuentaResponsable != null && a.CuentaResponsable.Titular.Id == id  )
+                if (a.CuentaResponsable != null && a.CuentaResponsable.Titular.Id == id)
                 {
                     ret.Add(a);
                 }
@@ -233,6 +233,18 @@ namespace Dominio
 
             }
             return ret;
+        }
+
+        public Cuenta FindCuentaById(int id)
+        {
+            foreach (Cuenta c in _cuentas)
+            {
+                if (c.Id == id)
+                {
+                    return c;
+                }
+            }
+            return null;
         }
 
         public void ActualizarActivo(Activo a)

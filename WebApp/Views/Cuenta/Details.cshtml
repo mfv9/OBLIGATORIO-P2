@@ -36,7 +36,9 @@
                     @cuentas.FechaCambioPass
                 </td>
                 <td>
-                      @Html.ActionLink("Ver activos", "Details", "Activo", new { id = cuentas.Id }) |
+                    @Html.ActionLink("Ver activos", "Details", "Activo", new { id = cuentas.Id })
+                    @Html.ActionLink("Crear activo", "Create", "Activo", new { id = cuentas.Id })
+
                    
                 </td>
             </tr>

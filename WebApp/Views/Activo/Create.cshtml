@@ -1,0 +1,51 @@
+﻿@using Dominio
+@model Activo
+
+@{
+    ViewData["Title"] = "Alta de Activo";
+}
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-controller="Activo" asp-action="Create">
+
+            <div class="form-group mb-3">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UnActivo" class="control-label">Tipo de activo</label>
+                <select asp-for="UnActivo"
+                        asp-items="Html.GetEnumSelectList<TipoActivo>()"
+                        class="form-control">
+                    <option value="">Seleccione un tipo</option>
+                </select>
+                <span asp-validation-for="UnActivo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Criticidad" class="control-label"></label>
+                <input asp-for="Criticidad" class="form-control" type="number" />
+                <span asp-validation-for="Criticidad" class="text-danger"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="TieneBackup" class="form-check-input" />
+                <label asp-for="TieneBackup" class="form-check-label">
+                    Tiene backup
+                </label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<p class="text-success">@ViewBag.msg</p>

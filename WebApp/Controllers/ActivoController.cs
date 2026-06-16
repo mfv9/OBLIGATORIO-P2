@@ -27,6 +27,33 @@ namespace WebApp.Controllers
             }
             return View(s.GetActivosPorCuenta(id));
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(int id)
+        {
+            try
+            {
+                Cuenta buscada = s.FindCuentaById(id);
+                if (buscada != null)
+                {
+                    Activo a = new Activo();
+                    a.CuentaResponsable = buscada;
+                    s.AltaActivo(a);
+                    ViewBag.msg = "Activo creado correctamente";
+                }
+            }
+            catch (Exception e)
+            {
+
+                ViewBag.msg = "Error: " + e.Message;
+
+            }
+            return View();
+        }
 
         public IActionResult Edit(string codigo)
         {
@@ -38,7 +65,7 @@ namespace WebApp.Controllers
         public IActionResult Edit(Activo a)
         {
             s.ActualizarActivo(a);
-            return RedirectToAction("Index","Persona");
+            return RedirectToAction("Index", "Persona");
         }
 
         public IActionResult PersonaActivos(int id)
