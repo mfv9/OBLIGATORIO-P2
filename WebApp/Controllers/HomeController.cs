@@ -10,6 +10,14 @@ namespace WebApp.Controllers
         Sistema s = Sistema.getInstance();
         public IActionResult Index()
         {
+            int? lid = HttpContext.Session.GetInt32("LogueadoId");
+            string lrol = HttpContext.Session.GetString("LogueadoRol");
+
+            if (lrol == "Operador" || lrol == "Administrador")
+            {
+                return RedirectToAction("NoPermitido", "Auth");
+            }
+
             return View();
         }
 
